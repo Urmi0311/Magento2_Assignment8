@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            id="Urmi_Form::form"
+            title="Form"
+            translate="title"
+            module="Urmi_Form"
+            resource="Urmi_Form::form"
+            parent="Magento_Backend::content"
+            sortOrder="900"
+        />
+        <add
+            id="Urmi_Form::faq"
+            title="FAQS"
+            translate="title"
+            module="Urmi_Form"
+            resource="Urmi_Form::faq"
+            parent="Urmi_Form::form"
+            action="form/faq"
+        />
+    </menu>
+</config>
+

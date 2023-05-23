@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="cart.summary">
+            <block class="Sigma\FreeShippingBar\Block\Freeshipping" name="freeshipping.message" template="Sigma_FreeShippingBar::freeshipping.phtml" before="-" />
+        </referenceContainer>
+    </body>
+</page>

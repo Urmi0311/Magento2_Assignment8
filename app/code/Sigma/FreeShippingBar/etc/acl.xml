@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Sigma_FreeShippingBar::general" title="Sigma Free Shipping Bar" translate="title" sortOrder="10">
+                    <resource id="Sigma_FreeShippingBar::config_enable_disable" title="Enable/Disable Free Shipping" translate="title"/>
+                    <resource id="Sigma_FreeShippingBar::config_free_shipping_cutoff" title="Free Shipping Cutoff" translate="title"/>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>
