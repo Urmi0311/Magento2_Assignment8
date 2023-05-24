@@ -4,5 +4,7 @@
         <referenceContainer name="cart.summary">
             <block class="Sigma\FreeShippingBar\Block\Freeshipping" name="freeshipping.message" template="Sigma_FreeShippingBar::freeshipping.phtml" before="-" />
         </referenceContainer>
+
+
     </body>
 </page>
