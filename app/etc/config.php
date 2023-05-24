@@ -349,6 +349,7 @@ return [
         'PayPal_Braintree' => 1,
         'PayPal_BraintreeGraphQl' => 1,
         'Sigma_FreeShippingBar' => 1,
+        'Sigma_ShippingAddress' => 1,
         'Temando_ShippingRemover' => 1,
         'Urmi_Form' => 1
     ]

@@ -56,3 +56,4 @@ class Freeshipping extends Template
         return $this->scopeConfig->getValue('sigma_freeshippingbar/general/free_shipping_cutoff', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
     }
 }
+

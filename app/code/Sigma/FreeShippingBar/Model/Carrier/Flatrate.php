@@ -99,6 +99,11 @@ class Flatrate extends \Magento\OfflineShipping\Model\Carrier\Flatrate
      * @param RateRequest $request
      * @return bool|Result
      */
+
+    public function isFreeEnable()
+    {
+        return $this->scopeConfig->isSetFlag('sigma_freeshippingbar/general/enable_disable', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+    }
     public function collectRates(RateRequest $request)
     {
         // Call the parent collectRates method to calculate the original shipping rates
@@ -108,13 +113,13 @@ class Flatrate extends \Magento\OfflineShipping\Model\Carrier\Flatrate
         $storeScope = ScopeInterface::SCOPE_STORE;
         $threshold = $this->scopeConfig->getValue(self::XML_PATH_THRESHOLD_LIMIT, $storeScope);
         $orderPrice = $request->getBaseSubtotalInclTax();
-
+        if($this->isFreeEnable()){
         if ($orderPrice >= $threshold) {
             // Set the shipping price to zero
             foreach ($result->getAllRates() as $rate) {
                 $rate->setPrice(0);
             }
-        }
+        }}
 
         return $result;
     }
