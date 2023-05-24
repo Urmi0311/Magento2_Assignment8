@@ -5,13 +5,13 @@
             <label>Sigma</label>
         </tab>
         <section id="sigma_freeshippingbar" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
-            <label>Free Shipping Bar Configuration</label>
+            <label>Free Shipping Bar </label>
             <tab>sigma</tab>
             <resource>Sigma_FreeShippingBar::general</resource>
             <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
                 <label>General Settings</label>
                 <field id="enable_disable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>Enable/Disable Free Shipping</label>
+                    <label>Enable Free Shipping</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
                 <field id="free_shipping_cutoff" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
