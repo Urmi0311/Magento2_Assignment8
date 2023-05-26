@@ -5,3 +5,5 @@
         <plugin name="sigma_shippingAddress_custom_middle_name" type="Sigma\ShippingAddress\Plugin\Checkout\Block\LayoutProcessorPlugin" sortOrder="10" />
     </type>
 </config>
+
+

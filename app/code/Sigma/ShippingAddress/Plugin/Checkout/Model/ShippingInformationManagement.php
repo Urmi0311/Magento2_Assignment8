@@ -20,6 +20,7 @@ class ShippingInformationManagement
     {
     }
 
+
     /**
      * @param \Magento\Checkout\Model\ShippingInformationManagement $subject
      * @param $cartId

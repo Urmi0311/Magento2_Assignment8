@@ -2,4 +2,5 @@
     <extension_attributes for="Magento\Quote\Api\Data\AddressInterface">
         <attribute code="middle_name" type="string" />
     </extension_attributes>
+
 </config>
