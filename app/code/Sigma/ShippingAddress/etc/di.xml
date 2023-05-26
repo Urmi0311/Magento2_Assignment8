@@ -5,3 +5,4 @@
         <plugin name="save_middle_name_to_quote_address_table" type="Sigma\ShippingAddress\Plugin\Checkout\Model\ShippingInformationManagement" disabled="false" />
     </type>
 </config>
+
