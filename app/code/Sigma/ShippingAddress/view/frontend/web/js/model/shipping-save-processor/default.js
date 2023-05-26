@@ -37,8 +37,6 @@ define(
                 // getting value from middle name input field
                 var customMiddleName = $('[name="custom_attributes[middle_name]"]').val();
 
-
-
                 payLoad = {
                     addressInformation: {
                         'shipping_address': quote.shippingAddress(),

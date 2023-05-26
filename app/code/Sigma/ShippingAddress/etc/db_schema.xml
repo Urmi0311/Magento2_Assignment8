@@ -4,11 +4,7 @@
     <table name="quote" resource="default" engine="innodb" comment="Custom Middle Name created">
         <column xsi:type="varchar" name="middle_name" nullable="true" length="40" comment="Middle Name Field"/>
     </table>
-<!--    <table name="sales_order" resource="default" engine="innodb" comment="Custom Middle Name created">-->
-<!--        <column xsi:type="varchar" name="middle_name" nullable="true" length="40" comment="Middle Name Field"/>-->
-<!--    </table>-->
+    <table name="sales_order" resource="default" engine="innodb" comment="Custom Middle Name created">
+        <column xsi:type="varchar" name="middle_name" nullable="true" length="40" comment="Middle Name Field"/>
+    </table>
 </schema>
-
-
-
-

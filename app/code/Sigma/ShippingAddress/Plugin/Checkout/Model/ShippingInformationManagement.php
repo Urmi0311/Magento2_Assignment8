@@ -2,8 +2,8 @@
 
 namespace Sigma\ShippingAddress\Plugin\Checkout\Model;
 
-use Magento\Quote\Api\Data\AddressInterface;
-use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\Checkout\Api\Data\ShippingInformationInterface;
+
 use Magento\Quote\Api\CartRepositoryInterface;
 use Magento\Quote\Model\QuoteRepository;
 
@@ -14,36 +14,35 @@ class ShippingInformationManagement
      * @param CartRepositoryInterface $cartRepository
      */
     public function __construct(
-        private QuoteRepository         $quoteRepository,
+        private QuoteRepository $quoteRepository,
         private CartRepositoryInterface $cartRepository
     )
     {
     }
 
-
     /**
      * @param \Magento\Checkout\Model\ShippingInformationManagement $subject
      * @param $cartId
-     * @param AddressInterface $addressInformation
-     * @throws NoSuchEntityException
-     * @throws \Zend_Log_Exception
+     * @param ShippingInformationInterface $addressInformation
+
      */
-
-
-
     public function beforeSaveAddressInformation(
         \Magento\Checkout\Model\ShippingInformationManagement $subject,
-                                                              $cartId,
-        \Magento\Quote\Api\Data\AddressInterface              $addressInformation
-    )
-    {
-        if (!$addressInformation->getExtensionAttributes()) {
+        $cartId,
+        ShippingInformationInterface $addressInformation,
+    ) {
+
+        if(!$addressInformation->getExtensionAttributes())
+        {
             return;
         }
 
-        $quote = $this->quoteRepository->getActive($cartId);
+        $quote = $this->cartRepository->getActive($cartId);
+
         $custom_middle_name_value = $addressInformation->getExtensionAttributes()->getMiddleName();
-        $quote->getShippingAddress()->setMiddleName($custom_middle_name_value);
-        $this->quoteRepository->save($quote);
+        $quote->setMiddleName($custom_middle_name_value);
+        $this->cartRepository->save($quote);
+        return [$cartId, $addressInformation];
+
     }
 }

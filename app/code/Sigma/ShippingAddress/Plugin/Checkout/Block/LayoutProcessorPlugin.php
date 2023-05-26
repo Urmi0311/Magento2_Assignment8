@@ -26,7 +26,7 @@ class LayoutProcessorPlugin
                 'template' => 'ui/form/field',
                 'elementTmpl' => 'ui/form/element/input',
                 'tooltip' => [
-                    'description' => 'This is Middle name field',
+                    'description' => 'Middle name',
                 ],
             ],
             'dataScope' => 'shippingAddress.custom_attributes' . '.' .$customMiddleNameCode,
@@ -34,11 +34,14 @@ class LayoutProcessorPlugin
             'provider' => 'checkoutProvider',
             'visible' => true,
             'validation' => [
-                'required-entry' => true
+                'required-entry' => true,
+                'validate-alpha' => true,
+                'max_text_length' => 20,
+                'min_text_length' => 2
             ],
             'options' => [],
             'filterBy' => null,
-            'sortOrder' => 25,
+            'sortOrder' => 30,
             'value' => ''
         ];
 
@@ -47,7 +50,4 @@ class LayoutProcessorPlugin
 
         return $jsLayout;
     }
-
 }
-
-
