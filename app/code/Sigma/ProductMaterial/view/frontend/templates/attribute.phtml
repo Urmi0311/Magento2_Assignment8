@@ -1,0 +1,12 @@
+<?php
+/** @var \Magento\Catalog\Block\Product\ListProduct $block */
+
+$product = $block->getProduct();
+?>
+
+<div class="product attribute material">
+    <?php if ($product->getAttributeText('material')): ?>
+        <strong class="type">Material</strong>
+        <div class="value" itemprop="material"><?php echo $product->getAttributeText('material'); ?></div>
+    <?php endif; ?>
+</div>
