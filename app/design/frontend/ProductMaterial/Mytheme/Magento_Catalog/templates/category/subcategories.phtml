@@ -1,0 +1,11 @@
+<?php
+/* @var $block */
+$subcategories = $block->getCurrentCategory()->getChildrenCategories();
+if ($subcategories->count() > 0) {
+    echo '<ul>';
+    foreach ($subcategories as $subcategory) {
+        echo '<li><a href="' . $subcategory->getUrl() . '">' . $subcategory->getName() . '</a></li>';
+    }
+    echo '</ul>';
+}
+?>
