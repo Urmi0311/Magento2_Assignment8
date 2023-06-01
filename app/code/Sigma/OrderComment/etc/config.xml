@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <order_info_field>
+            <general>
+                <display_text>Order Comment</display_text>
+                <display_text1>Provide More Information For Your Order</display_text1>
+            </general>
+        </order_info_field>
+    </default>
+</config>

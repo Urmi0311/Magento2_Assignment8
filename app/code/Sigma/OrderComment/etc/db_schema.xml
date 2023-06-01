@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="quote" resource="default" engine="innodb" comment="Customer Shipping Information Comment">
+        <column xsi:type="varchar" name="comment" nullable="true" length="100" comment="Customer Comment"/>
+    </table>
+    <table name="sales_order" resource="default" engine="innodb" comment="Customer Shipping Information Comment">
+        <column xsi:type="varchar" name="comment" nullable="true" length="100" comment="Customer Comment"/>
+    </table>
+</schema>

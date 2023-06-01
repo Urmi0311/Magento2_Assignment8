@@ -1,0 +1,20 @@
+{
+  "name": "sigma/module-order-comment",
+  "version": "1.0.0",
+  "description": "Order Comment Module",
+  "type": "magento2-module",
+  "require": {
+    "magento/framework": "*"
+  },
+  "license": [
+    "Proprietary"
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Sigma\\OrderComment\\": ""
+    }
+  }
+}
