@@ -1,0 +1,49 @@
+<?php
+/* @var \Magento\Catalog\Block\Category\View $block */
+$currentCategory = $block->getCurrentCategory();
+
+$subcategories = $currentCategory->getChildrenCategories();
+if ($subcategories->count() > 0) {
+    echo '<ul>';
+    foreach ($subcategories as $subcategory) {
+        echo '<li><a href="' . $subcategory->getUrl() . '">' . $subcategory->getName() . '</a></li>';
+    }
+    echo '</ul>';
+} else {
+    $productCollection = $currentCategory->getProductCollection();
+
+    $productCollection->addAttributeToSelect('*');
+    $productCollection->addCategoryFilter($currentCategory);
+    $productCollection->addAttributeToFilter('status', \Magento\Catalog\Model\Product\Attribute\Source\Status::STATUS_ENABLED);
+    $productCollection->setVisibility(\Magento\Catalog\Model\Product\Visibility::VISIBILITY_BOTH);
+
+    if ($productCollection->count() > 0) {
+        echo '<ul class="products-grid">';
+        foreach ($productCollection as $product) {
+            echo '<li class="product-item">';
+            echo '<a href="' . $product->getProductUrl() . '" class="product-item-link">';
+            echo '<div class="product-item-image">';
+            $imageUrl = $this->helper('Magento\Catalog\Helper\Image')
+                ->init($product, 'product_base_image')
+                ->constrainOnly(true)
+                ->keepAspectRatio(true)
+                ->keepTransparency(true)
+                ->keepFrame(false)
+                ->resize(150, 150)->getUrl();
+            if ($imageUrl) {
+                echo '<img src="' . $imageUrl . '" alt="' . $product->getName() . '">';
+            } else {
+                echo '<img src="' . $block->getViewFileUrl('Magento_Catalog::images/product/placeholder/small_image.jpg') . '" alt="' . $product->getName() . '">';
+            }
+            echo '</div>';
+            echo '<div class="product-item-name">' . $product->getName() . '</div>';
+            echo '</a>';
+            echo '</li>';
+        }
+        echo '</ul>';
+    } else {
+        echo '<p>No products found.</p>';
+    }
+}
+?>
+
