@@ -1,0 +1,55 @@
+<?php
+/** @var $block */ ?>
+<div class="row">
+    <div class="col-md-8">
+        <form name="addData" method="post" id="addData" class="form"
+              action="<?php echo $this->getFormAction(); ?>"
+              data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+              data-mage-init='{"validation":{}}'>
+            <fieldset class="fieldset">
+                <legend class="legend" style="font-weight: bold;"><span><?= $block->escapeHtmlAttr(__('Custom Contact Us Form')) ?></span></legend>
+
+                <fieldset class="fieldset row">
+                    <div class="fields col-md-6">
+                        <div class="field name required">
+                            <label class="label" for="title"><span><?= $block->
+                                    escapeHtmlAttr(__('Name')) ?></span></label>
+                            <div class="control">
+                                <input name="name" id="name" title="Name" value="" class="input-text" type="text"
+                                       data-validate="{required:true, 'validate-alphanum-with-spaces':true}">
+                            </div>
+                        </div>
+                        <div class="field name required">
+                            <label class="label" for="title"><span><?= $block->
+                                    escapeHtmlAttr(__('Email')) ?></span></label>
+                            <div class="control">
+                                <input name="email" id="email" title="Email" value="" class="input-text" type="text"
+                                       data-validate="{required:true, 'validate-email':true}">
+                            </div>
+                        </div>
+                        <div class="field name required">
+                            <label class="label" for="title"><span><?= $block->escapeHtmlAttr(__('Contact Number.')) ?></span></label>
+                            <div class="control">
+                                <input name="contact_number" id="contact_number" title="contact_number" value="" class="input-text"
+                                       type="number" data-validate="{required:true}">
+                            </div>
+                        </div>
+                        <div class="field name required">
+                            <label class="label" for="message"><span><?= $block->escapeHtmlAttr(__('Message')) ?></span></label>
+                            <div class="control">
+                                <textarea name="message" id="message" title="message" class="input-text" data-validate="{required:true}"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                </fieldset>
+            </fieldset>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button type="submit" class="action submit primary" title="Save"><span><?= $block->
+                            escapeHtmlAttr(__('Save')) ?></span></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

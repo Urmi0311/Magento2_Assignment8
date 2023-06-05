@@ -1,0 +1,7 @@
+<div class="field deptor_account_number">
+    <label class="label" for="deptor_account_number"><span><?php /* @escapeNotVerified */ echo __('Deptor Account Number') ?></span></label>
+    <div class="control">
+        <span class="error-text">*Deptor Number Should be greater than 10 and less than equals to 15*</span>
+        <input type="text" id="deptor_account_number" name="deptor_account_number" title="<?php /* @escapeNotVerified */ echo __('Deptor Account Number') ?>" class="input-text" autocomplete="off" required pattern="[0-9]{10,15}" maxlength="15" minlength="10">
+    </div>
+</div>
