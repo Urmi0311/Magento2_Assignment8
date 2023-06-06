@@ -1,0 +1,12 @@
+<?php
+
+/** @var \Sigma\CustomerCustAttribute\Block\Widget\AccountNumber $block */
+
+?>
+
+<div class="field telephone">
+    <label class="label" for="account_number"><span><?= __('Deptor Account Number') ?></span></label>
+    <div class="control">
+        <input type="text" name="account_number" id="account_number" class="input-text" required value="<?= $block->escapeHtmlAttr($block->getDeptorAccountNumber()) ?>" />
+    </div>
+</div>

@@ -1,0 +1,20 @@
+{
+  "name": "sigma/module-customer-custom-attribute",
+  "version": "1.0.0",
+  "description": "Customer Custom Account Page on Create Account Page",
+  "type": "magento2-module",
+  "require": {
+    "magento/framework": "*"
+  },
+  "license": [
+    "Proprietary"
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Sigma\\CustomerCustomAttribute\\": ""
+    }
+  }
+}
