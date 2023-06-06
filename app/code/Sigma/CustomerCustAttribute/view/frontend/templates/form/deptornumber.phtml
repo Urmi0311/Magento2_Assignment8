@@ -1,0 +1,22 @@
+<div class="field deptor-account-number">
+    <h2 class="title-deptor-account-number"><?php /* @escapeNotVerified */ echo __('Additional Information') ?></h2>
+    <label class="label" for="deptor_account_number"><span><?php /* @escapeNotVerified */ echo __('Debtor Account Number') ?></span></label>
+    <div class="control">
+        <input type="number" id="deptor_account_number" name="deptor_account_number" required
+               title="<?php /* @escapeNotVerified */ echo __('Debtor Account Number') ?>"
+               class="input-text"
+               autocomplete="on"
+               minlength="10"
+               maxlength="15"
+               oninput="validateDebtorAccountNumber(this)"
+        >
+    </div>
+</div>
+
+<script>
+    function validateDebtorAccountNumber(input) {
+        var value = input.value;
+        var isValid = /^\d{10,15}$/.test(value);
+        input.setCustomValidity(isValid ? '' : 'Please enter a valid debtor account number with 10 to 15 digits.');
+    }
+</script>

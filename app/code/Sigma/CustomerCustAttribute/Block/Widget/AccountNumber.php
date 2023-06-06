@@ -28,7 +28,7 @@ class AccountNumber extends AbstractWidget
     protected function _construct()
     {
         parent::_construct();
-        $this->setTemplate('Sigma_CustomerCustAttribute::widget/deptorAccountNumber.phtml');
+        $this->setTemplate('Sigma_CustomerCustAttribute::widget/deptornumber.phtml');
     }
 
     /**
@@ -61,7 +61,7 @@ class AccountNumber extends AbstractWidget
      * @return $this
      */
     public function setDeptorAccountNumber($number) {
-        $this->deptorAccountNumber = $number;
+        $this->dep = $number;
         return $this;
     }
 }

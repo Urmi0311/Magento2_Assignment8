@@ -13,9 +13,7 @@
                     <item name="validation" xsi:type="array">
                         <item name="required-entry" xsi:type="boolean">true</item>
                         <item name="validate-number" xsi:type="boolean">true</item>
-                        <item name="min_text_length" xsi:type="number">10</item>
-                        <item name="max_text_length" xsi:type="number">15</item>
-                    </item>
+                     </item>
                 </item>
             </argument>
         </column>

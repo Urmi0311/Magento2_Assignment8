@@ -4,7 +4,7 @@
     <body>
         <referenceContainer name="form.additional.info">
             <block name="deptor-account-number" class="Magento\Framework\View\Element\Template"
-                   template="Sigma_CustomerCustAttribute::form/deptorAccountNumber.phtml" />
+                   template="Sigma_CustomerCustAttribute::form/deptornumber.phtml" />
         </referenceContainer>
     </body>
 </page>
