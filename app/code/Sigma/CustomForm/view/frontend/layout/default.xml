@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+<referenceBlock name="footer_links">
+    <block class="Magento\Framework\View\Element\Html\Link" name="custom-link">
+        <arguments>
+            <argument name="label" xsi:type="string">Custom Contact Us Form</argument>
+            <!-- This will be displayed as the label of the link -->
+            <argument name="path" xsi:type="string">CustomForm/index/index</argument>
+            <!-- here give the path where the link redirect to -->
+        </arguments>
+    </block>
+</referenceBlock>
+    </body>
+</page>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="custom_contactus_form" resource="default" engine="innodb" comment="Data Table">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="Record Id"/>
+        <column xsi:type="varchar" name="name" nullable="false" length="255" comment="Name"/>
+        <column xsi:type="varchar" name="email" nullable="false" length="255" comment="Email"/>
+        <column xsi:type="bigint" name="contact_number" nullable="false" comment="Contact Number"/>
+
+        <column xsi:type="varchar" name="message" nullable="false" length="500" comment="Message"/>
+        <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" nullable="false" default="CURRENT_TIMESTAMP"  comment="Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>

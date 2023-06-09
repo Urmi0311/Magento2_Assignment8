@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment_method_fee>
+            <general>
+                <enable>0</enable>
+                <fee_amount>40</fee_amount>
+            </general>
+        </payment_method_fee>
+    </default>
+</config>

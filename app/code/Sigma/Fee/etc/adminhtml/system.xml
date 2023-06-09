@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="payment" translate="label" sortOrder="10">
+            <label>Payment Method settings</label>
+        </tab>
+        <section id="payment_method_fee" translate="label" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Payment Method Fee</label>
+            <tab>payment</tab>
+            <resource>Sigma_Fee::paymentfee</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Payment Method Fee Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Payment Fee</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="payment_methods" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+                    <label>Select Payment Methods</label>
+                    <source_model>Sigma\Fee\Model\Config\Source\paymentmethod</source_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="fee_type" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Fee Type</label>
+                    <source_model>Sigma\Fee\Model\Config\Source\FeeType</source_model>
+                    <comment>Choose whether the fee should be a percentage or a fixed amount.</comment>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="fee_amount" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Set Payment Fee Amount</label>
+                    <validate>validate-number</validate>
+                    <depends>
+                        <field id="enable">1</field>
+                        <field id="fee_type">fixed</field>
+                    </depends>
+                </field>
+                <field id="fee_percentage" translate="label" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0" type="select">
+                    <label>Set Payment Fee Percentage</label>
+                    <validate>validate-number</validate>
+                    <source_model>Sigma\Fee\Model\Config\Source\PercentageOptions</source_model>
+                    <depends>
+                        <field id="enable">1</field>
+                        <field id="fee_type">percentage</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

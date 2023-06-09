@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Sigma_CustomForm::manager" title="Custom Contact Us Form" module="Sigma_CustomForm" sortOrder="10" resource="Sigma_CustomForm::manager"/>
+        <add id="Sigma_CustomForm::add_row" title="Manage Form" module="Sigma_CustomForm" sortOrder="20" parent="Sigma_CustomForm::manager" action="grid/grid" resource="Sigma_CustomForm::add_row"/>
+    </menu>
+</config>
