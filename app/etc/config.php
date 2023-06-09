@@ -348,10 +348,16 @@ return [
         'Magento_WishlistSampleData' => 1,
         'PayPal_Braintree' => 1,
         'PayPal_BraintreeGraphQl' => 1,
-        'Sigma_FreeShippingBar' => 1,
-        'Sigma_OrderComment' => 1,
-        'Sigma_ShippingAddress' => 1,
+        'Sigma_CRUD' => 0,
+        'Sigma_CustomForm' => 0,
+        'Sigma_CustomerCustAttribute' => 0,
+        'Sigma_Fee' => 0,
+        'Sigma_FreeShippingBar' => 0,
+        'Sigma_GraphQL' => 1,
+        'Sigma_OrderComment' => 0,
+        'Sigma_ProductMaterial' => 0,
+        'Sigma_ShippingAddress' => 0,
         'Temando_ShippingRemover' => 1,
-        'Urmi_Form' => 1
+        'Urmi_Form' => 0
     ]
 ];
