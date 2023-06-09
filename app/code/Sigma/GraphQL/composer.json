@@ -1,0 +1,20 @@
+{
+  "name": "sigma/module-graphql",
+  "version": "1.0.0",
+  "description": "Module used for creating graphQL Api",
+  "type": "magento2-module",
+  "require": {
+    "magento/framework": "*"
+  },
+  "license": [
+    "Proprietary"
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Sigma\\GraphQL\\": ""
+    }
+  }
+}

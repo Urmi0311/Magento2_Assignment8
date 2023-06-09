@@ -1,0 +1,67 @@
+type Query {
+  disabledProductsList: [GetAllDisableProducts] @resolver(class: "Sigma\\GraphQL\\Model\\Resolver\\DisabledProductList") @doc(description: "Get All disable Product Data")
+  dailyDeal: DailyDealResponse! @resolver(class: "Sigma\\GraphQL\\Model\\Resolver\\GetSpecialPriceProducts") @doc(description: "Get list of special price products")
+  customerList(pageSize: Int, currentPage: Int): CustomerListResponse! @resolver(class: "Sigma\\GraphQL\\Model\\Resolver\\GetCustomerList") @doc(description: "Get list of customers with pagination")
+}
+
+type GetAllDisableProducts {
+  entityId: Int @doc(description: "Primary Id"),
+  proName: String @doc(description: "Product Name"),
+  sku: String @doc(description: "sku of Product"),
+  category: String @doc(description: "Category of Product"),
+  weight: Int @doc(description: "Weight of Product"),
+}
+
+type DailyDealResponse {
+  products_skus: [String!]! @doc(description: "List of product SKUs")
+}
+
+type CustomerListResponse {
+  success: Boolean! @doc(description: "Indicates if the request was successful")
+  message: String! @doc(description: "Error message, if any")
+  total_count: Int! @doc(description: "Total count of customers")
+  items: [Customer!]! @doc(description: "List of customers")
+  page_info: PageInfo! @doc(description: "Pagination information")
+}
+
+type Customer {
+  customer_id: Int! @doc(description: "Customer ID")
+  email: String! @doc(description: "Email address of the customer")
+  group: String! @doc(description: "Customer group")
+}
+
+type PageInfo {
+  current_page: Int! @doc(description: "Current page number")
+  page_size: Int! @doc(description: "Number of items per page")
+  total_pages: Int! @doc(description: "Total number of pages")
+}
+
+type GenerateCustomerTokenOutput {
+  token: String!
+  customer_id: Int!
+  group: String!
+  newsletter_subscribe: String!
+}
+
+type Mutation {
+  generateCustomerToken(
+    email: String!
+    password: String!
+  ): GenerateCustomerTokenOutput @resolver(class: "Sigma\\GraphQL\\Model\\Resolver\\GenerateCustomerToken") @doc(description: "Generate customer token with extra parameters")
+}
+
+
+type Mutation {
+  addToCart(input: AddToCartInput!): AddToCartPayload
+}
+
+input AddToCartInput {
+  sku: String!
+  quantity: Int!
+}
+
+type AddToCartPayload {
+  success: Boolean!
+  message: String!
+  cart_id: String
+}
