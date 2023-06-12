@@ -3,23 +3,28 @@ type Query {
   dailyDeal: DailyDealResponse! @resolver(class: "Sigma\\GraphQL\\Model\\Resolver\\GetSpecialPriceProducts") @doc(description: "Get list of special price products")
   customerList(pageSize: Int, currentPage: Int): CustomerListResponse! @resolver(class: "Sigma\\GraphQL\\Model\\Resolver\\GetCustomerList") @doc(description: "Get list of customers with pagination")
   products(search: String, pageSize: Int = 20): ProductResult @resolver(class: "Sigma\\GraphQL\\Model\\Resolver\\ProductBrand") @doc(description: "Query to retrieve a list of products with pagination.")
-storeConfig(
-    store: String
-  ): StoreConfig! @resolver(class: "Sigma\\GraphQL\\Model\\Resolver\\CustomStoreConfig")
+  storeConfig(store: String): StoreConfig! @resolver(class: "Sigma\\GraphQL\\Model\\Resolver\\CustomStoreConfig")
+  orders(startDate: String! @doc(description: "Start Date"), endDate: String! @doc(description: "End Date")): [Orders] @resolver(class: "Sigma\\GraphQL\\Model\\Resolver\\OrderDetails") @doc(description: "Get Order Details")
+  cart(cart_id: String!): Cart! @resolver(class: "Sigma\\GraphQL\\Model\\Resolver\\CustomCart") @doc(description: "Get the cart details")
 }
-}
+
+#ASSIGNMENT-1
 
 type GetAllDisableProducts {
   entityId: Int @doc(description: "Primary Id")
   proName: String @doc(description: "Product Name")
-  sku: String @doc(description: "sku of Product")
+  sku: String @doc(description: "SKU of Product")
   category: String @doc(description: "Category of Product")
   weight: Int @doc(description: "Weight of Product")
 }
 
+#Assignment-2
+
 type DailyDealResponse {
   products_skus: [String!]! @doc(description: "List of product SKUs")
 }
+
+#Assigment-5
 
 type CustomerListResponse {
   success: Boolean! @doc(description: "Indicates if the request was successful")
@@ -41,6 +46,8 @@ type PageInfo {
   total_pages: Int! @doc(description: "Total number of pages")
 }
 
+#Assignment-6
+
 type GenerateCustomerTokenOutput {
   token: String!
   customer_id: Int!
@@ -49,11 +56,11 @@ type GenerateCustomerTokenOutput {
 }
 
 type Mutation {
-  generateCustomerToken(
-    email: String!
-    password: String!
-  ): GenerateCustomerTokenOutput @resolver(class: "Sigma\\GraphQL\\Model\\Resolver\\GenerateCustomerToken") @doc(description: "Generate customer token with extra parameters")
+  generateCustomerToken(email: String!, password: String!): GenerateCustomerTokenOutput @resolver(class: "Sigma\\GraphQL\\Model\\Resolver\\GenerateCustomerToken") @doc(description: "Generate customer token with extra parameters")
+  createProduct(product: ProductInput!): Product! @resolver(class: "Sigma\\GraphQL\\Model\\Resolver\\CreateProduct")
 }
+
+#Assignment-4
 
 type ProductResult {
   total_count: Int!
@@ -81,10 +88,74 @@ type RegularPriceInfo {
   currency: String
 }
 
+#Assignment-3
+type Mutation {
+    createProduct(product: ProductInput!): Product! @resolver(class: "Sigma\\GraphQl\\Model\\Resolver\\CreateProduct")
+}
 
+type Product {
+    id: ID!
+    name: String!
+    description: String!
+    price: Float!
+}
 
+input ProductInput {
+    sku: String!
+    name: String!
+    description: String!
+    price: Float!
+}
+
+#Assignment-7
 
 type StoreConfig {
   website_default_title: String
   website_default_index: String
 }
+
+#Assignment-10
+
+type Orders {
+  order_id: Int @doc(description: "Order ID")
+  increment_id: String @doc(description: "Increment ID")
+  items: [Items] @doc(description: "Item details")
+}
+
+type Items @doc(description: "Getting all ordered product details") {
+  item_id: Int @doc(description: "Product ID")
+  item_name: String @doc(description: "Product Name")
+  qty: String @doc(description: "Quantity of Product")
+}
+
+#Assignment-9
+
+type Cart {
+  items: [CartItem!]! @doc(description: "List of cart items")
+}
+
+type CartItem {
+  item_id: Int! @doc(description: "Item ID")
+  product_id: Int! @doc(description: "Product ID")
+  sku: String! @doc(description: "SKU")
+  name: String! @doc(description: "Product name")
+  price: Float! @doc(description: "Product price")
+  quantity: Float! @doc(description: "Quantity")
+  additional_data: AdditionalData! @doc(description: "Additional data for the cart item")
+}
+
+type AdditionalData {
+  field1: String! @doc(description: "Additional field 1")
+  field2: Int! @doc(description: "Additional field 2")
+  field3: Boolean! @doc(description: "Additional field 3")
+}
+
+input ProductInput {
+  sku: String!
+  name: String!
+  description: String!
+  price: Float!
+}
+
+
+

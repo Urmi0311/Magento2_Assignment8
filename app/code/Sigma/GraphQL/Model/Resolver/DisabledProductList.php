@@ -2,10 +2,11 @@
 namespace Sigma\GraphQL\Model\Resolver;
 
 use Magento\Framework\GraphQl\Query\ResolverInterface;
-use Magento\Framework\GraphQl\Schema\Type\ResolveInfo;
 use Magento\Catalog\Api\ProductRepositoryInterface;
 use Magento\Framework\Api\SearchCriteriaBuilder;
 use Magento\Catalog\Api\CategoryRepositoryInterface;
+
+
 
 class DisabledProductList implements ResolverInterface
 {
